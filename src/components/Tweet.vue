@@ -16,36 +16,27 @@
 </template>
 
 <script>
-import { CONSUMER_KEY, CONSUMER_SECRET } from "../../env.js";
 import Twit from "twit";
+import axois from "axios";
 
 export default {
   data() {
     return {
       input: "",
       count: 100,
-      tw: undefined
+      axios: undefined
     };
   },
   mounted() {
-    this.tw = new Twit({
-      consumer_key: CONSUMER_KEY,
-      consumer_secret: CONSUMER_SECRET,
-      timeout_ms: 60 * 1000, // optional HTTP request timeout to apply to all requests.
-      strictSSL: true, // optional - requires SSL certificates to be valid.
-      app_only_auth: true
+    this.axios = axios.create({
+      baseURL:
+        "https://weod97zklg.execute-api.ap-southeast-1.amazonaws.com/dev/",
+      timeout: 1000
+      // headers: {'X-Custom-Header': 'foobar'}
     });
   },
   methods: {
-    analyse() {
-      this.tw.get(
-        "search/tweets",
-        { q: this.input, count: this.count },
-        (err, data, response) => {
-          console.log(data);
-        }
-      );
-    }
+    analyse() {}
   }
 };
 </script>
