@@ -16,14 +16,36 @@
 </template>
 
 <script>
+import { CONSUMER_KEY, CONSUMER_SECRET } from "../../env.js";
+import Twit from "twit";
+
 export default {
   data() {
     return {
-      input: ""
+      input: "",
+      count: 100,
+      tw: undefined
     };
   },
+  mounted() {
+    this.tw = new Twit({
+      consumer_key: CONSUMER_KEY,
+      consumer_secret: CONSUMER_SECRET,
+      timeout_ms: 60 * 1000, // optional HTTP request timeout to apply to all requests.
+      strictSSL: true, // optional - requires SSL certificates to be valid.
+      app_only_auth: true
+    });
+  },
   methods: {
-    analyse() {}
+    analyse() {
+      this.tw.get(
+        "search/tweets",
+        { q: this.input, count: this.count },
+        (err, data, response) => {
+          console.log(data);
+        }
+      );
+    }
   }
 };
 </script>
