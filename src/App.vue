@@ -2,7 +2,7 @@
   <v-app id="inspire" :dark="dark">
     <v-toolbar app fixed clipped-left>
       <v-toolbar-side-icon></v-toolbar-side-icon>
-      <v-toolbar-title>CYK Parser</v-toolbar-title>
+      <v-toolbar-title>Emotwit</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
@@ -28,8 +28,12 @@
           <v-flex px-1 mb-2 sx12 md6>
             <tweet></tweet>
           </v-flex>
-          <v-flex px-1 mb-2 sx12 md6></v-flex>
-          <v-flex sx12></v-flex>
+          <v-flex px-1 mb-2 sx12 md6>
+            <filters></filters>
+          </v-flex>
+          <v-flex sx12>
+            <sentiments></sentiments>
+          </v-flex>
         </v-layout>
       </v-container>
     </v-content>
@@ -50,11 +54,15 @@
 
 <script>
 import Tweet from "./components/Tweet";
+import Filters from "./components/Filters";
+import Sentiments from "./components/Sentiments";
 
 export default {
   name: "App",
   components: {
-    Tweet
+    Tweet,
+    Filters,
+    Sentiments
   },
   data() {
     return {

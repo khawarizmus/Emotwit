@@ -1,4 +1,8 @@
-# emotion
+# Emotwit
+
+[Emotwit](https://emotwit.netlify.com) is a sentiment analysis tool for tweets, it allows you to search for a keyword a hashtag or a Twitter handle and gather up to 100 tweets from Twitter to then run it through a sentiment analysis algorithm and show you the results.
+
+# Developpers
 
 ## Project setup
 ```
