@@ -76,7 +76,7 @@ export default {
   data() {
     return {
       input: [],
-      suggestions: ["#trump"],
+      suggestions: ["#Algeria_protests", "#Yetna7aw_Ga3", "#Hirak"],
       count: 100,
       axios: undefined,
       error: "",
